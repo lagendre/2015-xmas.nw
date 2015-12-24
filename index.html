@@ -1,0 +1,109 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+     <meta charset="UTF-8">
+<meta name="viewport" content="width = 1050, user-scalable = no" />
+<script type="text/javascript" src="js/jquery.min.1.7.js"></script>
+<script type="text/javascript" src="js/modernizr.2.5.3.min.js"></script>
+<script src="http://s3-ap-northeast-1.amazonaws.com/justfont-user-script/jf-38962.js"></script>
+</head>
+<body>
+<div id="snow">
+
+    
+<div class="flipbook-viewport">
+	<div class="container">
+		<div class="flipbook">
+			<div class="hard" style="background-image:url(pages/101_cover.jpg)"></div>
+            <div class="hard"><section><img src="pics/santa.png"  height=400  /><a href="https://docs.google.com/forms/d/17MsBVWWycMIgmVgdxommC_hjTllZSR-tWinc5P7osFs/viewform" target="_blank" onclick="javscript:alert('You got the gift!!')"><img src="pics/gift-icon.png" class="displayed" width=96 alt="gift for you" /></a></section></div>
+			<div class="hard">
+			<section class="content"><p>It seems that Christmas time is here once again, and it is time again to bring in the New Year. 
+			We wish the merriest of Christmas to you and your loved ones, 
+			and we wish you happiness and prosperity in the year ahead.</p>
+			耶誕節轉眼又到，又該迎接新的一年了。向你及你的親人們致以最美好的聖誕祝福，願你在新的一年裏事業興旺，幸福美滿！
+                <p>メリークリスマス, よいお年を</p>
+                <p>메리크리스마스, 새해 복 많이 받으십시오</p>
+                <p>สุขสันติ์วันคริสต์มาส, สวสดปใหม</p>
+                <p>Joyeux Noël, Bonne année!</p>
+                Sincerely Yours.<img src="pics/signature.png" />
+                
+                <div class="ad">廣告：<a href="http://嘉宏❤津舫婚禮.ml" target="_blank"><img src="pics/qr_love.png" alt="嘉宏❤津舫婚禮.ml" width=96 ></a></div>
+            </section>
+            </div>
+
+		</div>
+	</div>
+</div>
+
+</div>
+    
+<script type="text/javascript">
+
+function loadApp() {
+
+	// Create the flipbook
+   var audio = new Audio('./jiggle_bell.mp3');
+    
+	$('.flipbook').turn({
+        when: {
+	       turned: function(event, page, pageObject) {
+                    if  (page==1) {
+                    event.preventDefault();
+                        audio.pause();
+                    }
+               
+		          if (page==2) {
+                    event.preventDefault();
+                        audio.play();
+                }
+            }
+        },
+			// Width
+			width:922,
+			
+			// Height
+
+			height:600,
+
+			// Elevation
+
+			elevation: 50,
+			
+			// Enable gradients
+
+			gradients: true,
+			
+			// Auto center this flipbook
+
+			autoCenter: true
+
+	});
+    
+    setInterval(function() {
+ if ( $('.flipbook').turn('page')!=$('.flipbook').turn('pages') ) {
+    $('.flipbook').turn('next');
+ }
+}, 5000);
+    
+}
+
+// Load the HTML4 version if there's not CSS transform
+
+yepnope({
+	test : Modernizr.csstransforms,
+	yep: ['js/turn.min.js'],
+	nope: ['js/turn.html4.min.js'],
+	both: ['css/basic.css'],
+	complete: loadApp
+});
+
+    
+    
+</script>
+
+</body>
+</html>
