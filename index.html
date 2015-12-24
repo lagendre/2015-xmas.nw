@@ -45,15 +45,18 @@
 
 function loadApp() {
 
-	// Create the flipbook
+	
    var audio = new Audio('./jiggle_bell.mp3');
+    var  refreshIntervalId;
     
+    // Create the flipbook
 	$('.flipbook').turn({
         when: {
 	       turned: function(event, page, pageObject) {
                     if  (page==1) {
                     event.preventDefault();
                         audio.pause();
+                         clearInterval(refreshIntervalId);
                     }
                
 		          if (page==2) {
@@ -83,7 +86,7 @@ function loadApp() {
 
 	});
     
-    setInterval(function() {
+  refreshIntervalId =  setInterval(function() {
  if ( $('.flipbook').turn('page')!=$('.flipbook').turn('pages') ) {
     $('.flipbook').turn('next');
  }
